@@ -18,6 +18,8 @@ class CreateItemComponent extends Component {
         // binding saveItem event handler (Add Item button)
         this.saveItem = this.saveItem.bind(this);
 
+         this.updateItem = this.updateItem.bind(this);
+
         // binding cancel method
         // this.cancel = this.cancel.bind(this);
     }
@@ -51,6 +53,20 @@ class CreateItemComponent extends Component {
         }
       }
 
+
+      updateItem = async (e) => {
+              e.preventDefault();
+              let item = {id: this.state.id, name: this.state.name, description: this.state.description};
+              console.log('item => ' + JSON.stringify(item));
+
+              try {
+               await ItemService.updateItem(item);
+               window.location.href = '/items';
+             } catch (error) {
+               console.error(error);
+             }
+          }
+
     render() {
         return (
             <div>
@@ -70,7 +86,7 @@ class CreateItemComponent extends Component {
                                         <input type="text" placeholder='Item Description' name='description' className='form-control'
                                         value={this.state.description} onChange={this.changeItemDescriptionHandler} />
                                     </div>
-                                    <button className='btn btn-success' onClick={this.saveItem}>Add Item</button>
+                                    <button className='btn btn-success' onClick={this.saveItem}>Save Item</button>
                                     {/* <button className='btn btn-danger' onClick={this.cancel.bind(this)} style={{marginLeft:"10px"}}>Cancel</button> */}
                                 </form>
                             </div>

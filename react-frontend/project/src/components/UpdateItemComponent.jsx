@@ -70,7 +70,7 @@ class UpdateItemComponent extends Component {
                                         <input type="text" placeholder='Item Description' name='description' className='form-control'
                                         value={this.state.description} onChange={this.changeItemDescriptionHandler} />
                                     </div>
-                                    <button className='btn btn-success' onClick={this.updateItem}>Add Item</button>
+                                    <button className='btn btn-success' onClick={this.updateItem}>save Item</button>
                                 </form>
                             </div>
                         </div>

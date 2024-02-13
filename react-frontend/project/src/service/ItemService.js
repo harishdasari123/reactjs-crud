@@ -14,6 +14,10 @@ class ItemService {
         return axios.post(Item_Base_URL, item);
     }
 
+    updateItem(item){
+            return axios.put(Item_Base_URL, item);
+    }
+
     // get item by id
     getItemById(itemID){
         return axios.get(Item_Base_URL + '/' + itemID);

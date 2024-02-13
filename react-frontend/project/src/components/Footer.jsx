@@ -11,7 +11,7 @@ class Footer extends Component {
             <div>
                 <footer className="footer">
                     <span className="text-muted">
-                        All Rights Reserved 2023 @HostBuddy
+                        All Rights Reserved 2024 Harish
                     </span>
                 </footer>
             </div>

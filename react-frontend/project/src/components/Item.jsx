@@ -16,11 +16,16 @@ class Item extends Component {
   }
 
   componentDidMount(){
+  if(this.state.id === '_add'){
+                return
+            }else{
     ItemService.getItems().then((res) => {
       this.setState({items : res.data})
     });
+    }
   }
-  
+
+
   addItem(){
     this.props.history.push('/add-items')
   }
@@ -59,6 +64,11 @@ class Item extends Component {
                   <td>{item.id}</td>
                   <td>{item.name}</td>
                   <td>{item.description}</td>
+                  <td><button variant="primary" onClick={()=>this.updateItem(item.id)}>
+                            Edit
+                          </button>
+
+                          </td>
                 </tr>
               ))}
             </tbody>
